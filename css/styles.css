@@ -1,0 +1,521 @@
+/* Color Palette — cold ocean tones
+#0b1f33 - Midnight navy
+#16425b - Deep ocean blue
+#3a7d8c - Storm teal
+#a7dce0 - Ice blue
+#e8f3f5 - Frost
+#f8fbfc - Snow
+*/
+
+/* Global styles
+------------------------------------*/
+:root {
+  --midnight: #0b1f33;
+  --ocean: #16425b;
+  --storm: #3a7d8c;
+  --ice: #a7dce0;
+  --frost: #e8f3f5;
+  --snow: #f8fbfc;
+  --ink: #102a3a;
+  --muted: #526d7a;
+  --line: #c6dce1;
+  --shadow: 0 18px 45px rgba(4, 25, 41, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--snow);
+  color: var(--ink);
+  font-family: "Times New Roman", "Tinos", Times, serif;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--ice);
+  outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+.eyebrow,
+.section-kicker,
+.tag-list,
+.quick-details,
+.contact-links {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0.1em;
+  font-size: clamp(4.5rem, 10vw, 8rem);
+  letter-spacing: 0.025em;
+  line-height: 0.82;
+}
+
+h2 {
+  margin-bottom: 0.55em;
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  letter-spacing: 0.035em;
+  line-height: 0.95;
+}
+
+h3 {
+  margin-bottom: 0.15em;
+  color: var(--ocean);
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  letter-spacing: 0.025em;
+  line-height: 1.05;
+}
+
+section {
+  padding: 6rem 1.5rem;
+}
+
+.content-wrap {
+  width: min(100%, 68rem);
+  margin: 0 auto;
+}
+
+.section-kicker,
+.eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--storm);
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 0.25rem;
+  background: var(--snow);
+  color: var(--midnight);
+  transform: translateY(-180%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Header & Footer
+------------------------------------*/
+.intro {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(4rem, 9vw, 7.5rem) 1.5rem;
+  background:
+    radial-gradient(
+      circle at 85% 12%,
+      rgba(167, 220, 224, 0.2),
+      transparent 28rem
+    ),
+    linear-gradient(135deg, var(--midnight), var(--ocean));
+  color: var(--snow);
+}
+
+.intro::after {
+  position: absolute;
+  z-index: -1;
+  right: -7rem;
+  bottom: -13rem;
+  width: 28rem;
+  height: 28rem;
+  border: 1px solid rgba(167, 220, 224, 0.28);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4rem rgba(167, 220, 224, 0.04),
+    0 0 0 8rem rgba(167, 220, 224, 0.025);
+  content: "";
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.72fr) minmax(20rem, 1.28fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.portrait-frame {
+  position: relative;
+  max-width: 25rem;
+  padding: 0.7rem;
+  border: 1px solid rgba(167, 220, 224, 0.65);
+  background: rgba(248, 251, 252, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.portrait-frame::before {
+  position: absolute;
+  top: -1.1rem;
+  left: -1.1rem;
+  width: 5rem;
+  height: 5rem;
+  border-top: 4px solid var(--ice);
+  border-left: 4px solid var(--ice);
+  content: "";
+}
+
+.portrait-frame img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 53% center;
+  filter: saturate(0.82) contrast(1.04);
+}
+
+.intro-copy h2 {
+  max-width: 44rem;
+  margin-bottom: 1.1rem;
+  color: var(--ice);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.intro .eyebrow {
+  color: var(--ice);
+}
+
+.summary {
+  max-width: 42rem;
+  margin-bottom: 1.7rem;
+  color: #e4eff2;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+}
+
+.quick-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ice);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quick-details li {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(167, 220, 224, 0.45);
+}
+
+footer {
+  padding: 5rem 1.5rem 1.8rem;
+  background: var(--midnight);
+  color: var(--frost);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(12rem, 0.5fr);
+  gap: 3rem;
+  align-items: end;
+}
+
+footer h2 {
+  margin-bottom: 0.35em;
+  color: var(--snow);
+}
+
+footer .section-kicker {
+  color: var(--ice);
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  color: var(--ice);
+  font-size: 1.18rem;
+  letter-spacing: 0.06em;
+}
+
+.copyright {
+  width: min(100%, 68rem);
+  margin: 4rem auto 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(167, 220, 224, 0.2);
+  color: #abc4cb;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.back-to-top {
+  width: 100%;
+  margin: 2.5rem auto 0;
+  text-align: center;
+}
+
+.back-to-top a {
+  display: inline-block;
+  color: var(--ice);
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+}
+/* Work Experience
+------------------------------------*/
+.work-experience {
+  background: var(--snow);
+}
+
+.work-experience > .content-wrap > h2 {
+  color: var(--midnight);
+}
+
+.resume-item {
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.resume-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+.organization {
+  margin-bottom: 0.8rem;
+  color: var(--storm);
+  font-weight: 700;
+}
+
+.organization span {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.date-location {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+.resume-item > p,
+.resume-item > ul {
+  max-width: 52rem;
+}
+
+.resume-item ul {
+  margin-bottom: 0;
+  padding-left: 1.25rem;
+}
+
+.resume-item li {
+  padding-left: 0.35rem;
+}
+
+.resume-item li + li {
+  margin-top: 0.4rem;
+}
+
+.resume-item li::marker {
+  color: var(--storm);
+}
+
+.strengths {
+  margin-top: 2rem;
+  padding: 2rem;
+  border-left: 0.45rem solid var(--storm);
+  background: var(--frost);
+}
+
+.strengths h3 {
+  margin-bottom: 1rem;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ocean);
+  font-size: 1rem;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.tag-list li {
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--line);
+  background: rgba(248, 251, 252, 0.7);
+}
+
+/* Education
+------------------------------------*/
+.education {
+  background: var(--frost);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.62fr) minmax(20rem, 1.38fr);
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: start;
+}
+
+.education h2 {
+  color: var(--midnight);
+}
+
+.education-card {
+  padding: 2.4rem;
+  border-top: 0.4rem solid var(--storm);
+  background: var(--snow);
+  box-shadow: 0 16px 36px rgba(11, 31, 51, 0.1);
+}
+
+.education-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive styles
+------------------------------------*/
+@media (max-width: 48rem) {
+  body {
+    font-size: 1.05rem;
+  }
+
+  section {
+    padding: 4.25rem 1.25rem;
+  }
+
+  .intro {
+    padding: 4rem 1.25rem;
+  }
+
+  .intro-grid,
+  .education-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait-frame {
+    width: min(100%, 22rem);
+  }
+
+  .resume-heading {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .date-location {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .footer-grid {
+    align-items: start;
+  }
+}
+
+@media (max-width: 28rem) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  .quick-details {
+    display: grid;
+  }
+
+  .strengths,
+  .education-card {
+    padding: 1.5rem;
+  }
+}
+
+@media print {
+  body {
+    background: #ffffff;
+    color: #000000;
+    font-size: 11pt;
+  }
+
+  .intro,
+  footer {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .intro {
+    padding: 1rem 0;
+  }
+
+  section,
+  footer {
+    padding: 1rem 0;
+  }
+
+  .intro-copy h2,
+  .intro .eyebrow,
+  .summary,
+  .quick-details,
+  footer .section-kicker,
+  .contact-links,
+  footer h2 {
+    color: #000000;
+  }
+
+  .portrait-frame {
+    max-width: 10rem;
+    box-shadow: none;
+  }
+
+  .resume-item,
+  .education-card,
+  .strengths {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .skip-link,
+  .copyright,
+  .back-to-top {
+    display: none;
+  }
+}
